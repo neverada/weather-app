@@ -9,23 +9,7 @@ function App() {
 
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
-  // Get user's current location on component mount
-  useEffect(() => {
-    getCurrentLocationWeather();
-  }, []);
-
-  const getCurrentLocationWeather = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          fetchWeatherByCoords(position.coords.latitude, position.coords.longitude);
-        },
-        (error) => {
-          console.log('Location access denied');
-        }
-      );
-    }
-  };
+ 
 
   const fetchWeatherByCoords = async (lat, lon) => {
     setLoading(true);
